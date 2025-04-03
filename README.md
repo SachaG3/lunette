@@ -1,4 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# UltimateGlasses - Projet d'Anglais
+
+Ce projet a été créé dans le cadre d'un cours d'anglais où nous devions présenter un produit innovant qui n'existe pas encore. Nous avons choisi de créer une landing page pour "UltimateGlasses", une paire de lunettes révolutionnaire qui combine réalité augmentée, intelligence artificielle et technologies de pointe.
+
+## 🎯 Objectif du Projet
+
+L'objectif était de créer une présentation marketing convaincante en anglais pour un produit fictif, en utilisant les technologies web modernes. Nous avons développé une landing page interactive et responsive qui met en valeur les fonctionnalités innovantes d'UltimateGlasses.
+
+## 🛠 Technologies Utilisées
+
+- Next.js 15.2.4
+- Tailwind CSS
+- Lucide Icons
+- TypeScript
+
+## 📱 Aperçu du Site
+
+### Page d'accueil
+![Aperçu de la première section](public/img/site.png)
+
+### Site complet
+![Vue d'ensemble du site](public/img/sitecomplet.png)
+
+## 🌟 Fonctionnalités Principales
+
+- Design moderne et responsive
+- Thème sombre/clair
+- Animations fluides
+- Sections interactives
+- Présentation des fonctionnalités du produit
+- Témoignages
+- Plans de tarification
+
+## 👥 Équipe
+
+- Ardélaïde
+- Thomas
+- Valentin
+- Sacha
+
+## 🚀 Installation
+
+```bash
+# Cloner le repository
+git clone [url-du-repo]
+
+# Installer les dépendances
+npm install
+
+# Lancer le serveur de développement
+npm run dev
+```
+
+## 📝 Note
+
+Ce projet est purement fictif et a été créé uniquement à des fins éducatives dans le cadre d'un cours d'anglais.
 
 ## Getting Started
 
