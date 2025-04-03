@@ -36,7 +36,7 @@ export default function Home() {
         <nav className="hidden md:flex space-x-10">
           <a href="#features" className="text-muted-foreground hover:text-foreground transition-colors text-sm">Features</a>
           <a href="#experience" className="text-muted-foreground hover:text-foreground transition-colors text-sm">Experience</a>
-          <a href="#piercing" className="text-muted-foreground hover:text-foreground transition-colors text-sm">Piercing</a>
+          <a href="#pricing" className="text-muted-foreground hover:text-foreground transition-colors text-sm">Pricing</a>
           <a href="#contact" className="text-muted-foreground hover:text-foreground transition-colors text-sm">Contact</a>
         </nav>
         <div className="flex items-center gap-3">
@@ -87,7 +87,7 @@ export default function Home() {
             <div className="border border-border/50 rounded-full px-6 py-2 bg-background/30 backdrop-blur-sm hover-lift">
               <p className="text-sm text-muted-foreground flex items-center">
                 <Sparkles className="w-4 h-4 mr-2 text-primary" /> 
-                Created by Adélaïde, Thomas, Valentin & Sacha
+                Created by Ardélaïde, Thomas, Valentin & Sacha
               </p>
             </div>
           </div>
@@ -258,8 +258,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Piercing section */}
-      <section id="piercing" className="py-24 px-6 md:px-10 lg:px-20 bg-muted/50 relative overflow-hidden">
+      {/* Pricing section */}
+      <section id="pricing" className="py-24 px-6 md:px-10 lg:px-20 bg-muted/50 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent"></div>
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="flex flex-col gap-2 text-center mb-20 animate-fade-in">
@@ -269,75 +269,123 @@ export default function Home() {
               </span>
             </div>
             <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
-              Smart Piercing Integration
+              Pricing Plans
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Our glasses seamlessly connect with smart piercings to enhance your sensory experience.
+              Choose the perfect plan for your visual enhancement needs.
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-            <div className="flex flex-col gap-6 justify-center">
-              <h3 className="text-xl font-medium">Enhanced Sensory Experience</h3>
-              <p className="text-muted-foreground">
-                Our revolutionary smart piercing technology works with the glasses to create a comprehensive sensory ecosystem that extends your perception beyond standard visual cues.
-              </p>
-              <ul className="space-y-2">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            <div className="bg-background rounded-xl p-8 border border-border hover-lift hover-glow shadow-sm">
+              <div className="mb-4">
+                <p className="text-sm font-medium text-muted-foreground">Basic</p>
+                <h3 className="text-3xl font-bold mt-2">€2990</h3>
+                <p className="text-sm text-muted-foreground mt-1">One-time payment</p>
+              </div>
+              <div className="h-px w-full bg-border my-6"></div>
+              <ul className="space-y-4 mb-8">
                 <li className="flex items-start gap-2">
                   <div className="mt-1 w-5 h-5 rounded-full bg-primary/30 flex items-center justify-center flex-shrink-0 border border-primary/40">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
                   </div>
-                  <span className="text-sm text-muted-foreground">Haptic feedback through imperceptible vibrations</span>
+                  <span className="text-sm">Standard visual enhancement</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <div className="mt-1 w-5 h-5 rounded-full bg-primary/30 flex items-center justify-center flex-shrink-0 border border-primary/40">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
                   </div>
-                  <span className="text-sm text-muted-foreground">Subtle temperature shifts to convey information</span>
+                  <span className="text-sm">8-hour battery life</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <div className="mt-1 w-5 h-5 rounded-full bg-primary/30 flex items-center justify-center flex-shrink-0 border border-primary/40">
                     <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
                   </div>
-                  <span className="text-sm text-muted-foreground">Bio-electrical interface for enhanced interaction</span>
+                  <span className="text-sm">Basic language translation</span>
                 </li>
               </ul>
-              <Button className="text-sm w-fit mt-4 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full">
-                Learn About Safety Features
-              </Button>
+              <Button className="w-full rounded-full">Choose Basic</Button>
             </div>
-            <div className="relative">
-              <div className="h-96 bg-muted rounded-xl overflow-hidden flex items-center justify-center hover-lift hover-glow">
-                <div className="relative w-full h-full">
-                  <Image 
-                    src="/img/lunette.png" 
-                    alt="Smart Piercing Integration" 
-                    fill
-                    className="object-contain p-4"
-                  />
-                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center border border-primary/30">
-                    <Gem className="w-8 h-8 text-primary" />
-                  </div>
-                </div>
-                <div className="absolute bottom-6 right-6 p-3 bg-background/70 backdrop-blur-sm rounded-lg">
-                  <p className="text-xs font-medium">Dermal Anchor Design</p>
-                </div>
+            
+            <div className="bg-background rounded-xl p-8 border-2 border-primary/30 hover-lift hover-glow shadow-sm relative">
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-primary text-primary-foreground text-xs font-medium px-4 py-1 rounded-full">Most Popular</div>
+              <div className="mb-4">
+                <p className="text-sm font-medium text-muted-foreground">Premium</p>
+                <h3 className="text-3xl font-bold mt-2">€4990</h3>
+                <p className="text-sm text-muted-foreground mt-1">One-time payment</p>
               </div>
+              <div className="h-px w-full bg-border my-6"></div>
+              <ul className="space-y-4 mb-8">
+                <li className="flex items-start gap-2">
+                  <div className="mt-1 w-5 h-5 rounded-full bg-primary/30 flex items-center justify-center flex-shrink-0 border border-primary/40">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                  </div>
+                  <span className="text-sm">Enhanced visual clarity</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="mt-1 w-5 h-5 rounded-full bg-primary/30 flex items-center justify-center flex-shrink-0 border border-primary/40">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                  </div>
+                  <span className="text-sm">12-hour battery life</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="mt-1 w-5 h-5 rounded-full bg-primary/30 flex items-center justify-center flex-shrink-0 border border-primary/40">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                  </div>
+                  <span className="text-sm">30+ language translations</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="mt-1 w-5 h-5 rounded-full bg-primary/30 flex items-center justify-center flex-shrink-0 border border-primary/40">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                  </div>
+                  <span className="text-sm">Night vision capability</span>
+                </li>
+              </ul>
+              <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground rounded-full">Choose Premium</Button>
+            </div>
+            
+            <div className="bg-background rounded-xl p-8 border border-border hover-lift hover-glow shadow-sm">
+              <div className="mb-4">
+                <p className="text-sm font-medium text-muted-foreground">Ultimate</p>
+                <h3 className="text-3xl font-bold mt-2">€8990</h3>
+                <p className="text-sm text-muted-foreground mt-1">One-time payment</p>
+              </div>
+              <div className="h-px w-full bg-border my-6"></div>
+              <ul className="space-y-4 mb-8">
+                <li className="flex items-start gap-2">
+                  <div className="mt-1 w-5 h-5 rounded-full bg-primary/30 flex items-center justify-center flex-shrink-0 border border-primary/40">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                  </div>
+                  <span className="text-sm">Maximum visual enhancement</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="mt-1 w-5 h-5 rounded-full bg-primary/30 flex items-center justify-center flex-shrink-0 border border-primary/40">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                  </div>
+                  <span className="text-sm">24-hour battery life</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="mt-1 w-5 h-5 rounded-full bg-primary/30 flex items-center justify-center flex-shrink-0 border border-primary/40">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                  </div>
+                  <span className="text-sm">All premium features</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="mt-1 w-5 h-5 rounded-full bg-primary/30 flex items-center justify-center flex-shrink-0 border border-primary/40">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                  </div>
+                  <span className="text-sm">Lifetime updates</span>
+                </li>
+              </ul>
+              <Button className="w-full rounded-full">Choose Ultimate</Button>
             </div>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="bg-background rounded-lg p-6 border border-border hover-lift shadow-sm">
-              <p className="text-sm text-foreground font-medium mb-2">Material Safety</p>
-              <p className="text-xs text-muted-foreground">Medical-grade titanium and biocompatible circuits designed for long-term use.</p>
-            </div>
-            <div className="bg-background rounded-lg p-6 border border-border hover-lift shadow-sm">
-              <p className="text-sm text-foreground font-medium mb-2">Wireless Power</p>
-              <p className="text-xs text-muted-foreground">No batteries needed — powered through induction from the glasses when in range.</p>
-            </div>
-            <div className="bg-background rounded-lg p-6 border border-border hover-lift shadow-sm">
-              <p className="text-sm text-foreground font-medium mb-2">Quick Installation</p>
-              <p className="text-xs text-muted-foreground">Professional placement takes less than 30 minutes with minimal recovery time.</p>
+          <div className="text-center">
+            <p className="text-sm text-muted-foreground mb-4">All plans include a 30-day money-back guarantee</p>
+            <div className="inline-flex items-center gap-2 bg-muted/50 rounded-full px-4 py-2 text-xs text-muted-foreground">
+              <Sparkles className="w-3 h-3 text-primary" />
+              Financing options available
             </div>
           </div>
         </div>
