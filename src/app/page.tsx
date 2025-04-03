@@ -1,103 +1,409 @@
-import Image from "next/image";
+import { Button } from "@/components/ui/button"
+import { Card, CardHeader, CardTitle, CardDescription } from "@/components/ui/card"
+import { Mic, Camera, Sun, Heart, Volume2, Lightbulb, ArrowRight, LucideIcon, Gem, Sparkles } from "lucide-react"
+import { ThemeToggle } from "@/components/ui/theme-toggle"
+import Image from "next/image"
+
+interface FeatureCardProps {
+  icon: LucideIcon
+  title: string
+  description: string
+  delay?: string
+}
+
+const FeatureCard = ({ icon: Icon, title, description, delay = "0ms" }: FeatureCardProps) => (
+  <Card className="border-border shadow-sm rounded-xl bg-card hover:bg-card-hover transition-colors hover-lift hover-glow animate-scale" style={{ animationDelay: delay }}>
+    <CardHeader className="pb-2">
+      <div className="mb-4">
+        <span className="p-2 rounded-full bg-muted inline-flex">
+          <Icon className="w-5 h-5 text-foreground" />
+        </span>
+      </div>
+      <CardTitle className="text-foreground text-lg">{title}</CardTitle>
+      <CardDescription className="text-muted-foreground">
+        {description}
+      </CardDescription>
+    </CardHeader>
+  </Card>
+)
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <div className="min-h-screen bg-background text-foreground">
+      {/* Header */}
+      <header className="py-6 px-6 md:px-10 lg:px-20 flex justify-between items-center border-b border-border backdrop-blur-sm bg-background/80 fixed w-full z-50">
+        <div className="font-semibold tracking-tight">UltimateGlasses</div>
+        <nav className="hidden md:flex space-x-10">
+          <a href="#features" className="text-muted-foreground hover:text-foreground transition-colors text-sm">Features</a>
+          <a href="#experience" className="text-muted-foreground hover:text-foreground transition-colors text-sm">Experience</a>
+          <a href="#piercing" className="text-muted-foreground hover:text-foreground transition-colors text-sm">Piercing</a>
+          <a href="#contact" className="text-muted-foreground hover:text-foreground transition-colors text-sm">Contact</a>
+        </nav>
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
+          <Button variant="outline" className="rounded-full border-border text-foreground hover:bg-accent hover:text-accent-foreground transition-colors text-sm px-5">
+            Try Now
+          </Button>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+      </header>
+
+      {/* Hero section */}
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-32 px-6 md:px-10 lg:px-20 overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent"></div>
+        <div className="max-w-5xl mx-auto animate-fade-in">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div className="text-center md:text-left">
+              <div className="mb-4 flex md:justify-start justify-center">
+                <span className="px-3 py-1 text-xs font-medium rounded-full bg-primary/20 text-primary border border-primary/30 animate-slide-down">Revolutionary Technology</span>
+              </div>
+              <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight tracking-tight animate-slide-up">
+                A New Vision <br />Of The World
+              </h1>
+              <p className="text-lg md:text-xl text-muted-foreground mb-10 leading-relaxed animate-slide-up" style={{ animationDelay: "100ms" }}>
+                Redefine your perception with our glasses technology that radically transforms the way you see and interact with the world.
+              </p>
+              <div className="flex flex-col sm:flex-row md:justify-start justify-center gap-4 animate-slide-up" style={{ animationDelay: "200ms" }}>
+                <Button size="lg" className="bg-foreground hover:bg-foreground/90 text-background rounded-full px-8 py-6 hover-lift group">
+                  Discover <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+                <Button variant="outline" size="lg" className="rounded-full border-border text-foreground hover:bg-accent hover:text-accent-foreground px-8 py-6">
+                  Learn More
+                </Button>
+              </div>
+            </div>
+            <div className="hidden md:block relative animate-slide-left overflow-hidden rounded-xl">
+              <div className="relative w-full h-[400px] rounded-xl hover-scale overflow-hidden">
+                <Image 
+                  src="/img/lunette.png" 
+                  alt="UltimateGlasses" 
+                  fill 
+                  className="object-contain"
+                />
+              </div>
+            </div>
+          </div>
+          
+          <div className="mt-16 flex justify-center">
+            <div className="border border-border/50 rounded-full px-6 py-2 bg-background/30 backdrop-blur-sm hover-lift">
+              <p className="text-sm text-muted-foreground flex items-center">
+                <Sparkles className="w-4 h-4 mr-2 text-primary" /> 
+                Created by Adélaïde, Thomas, Valentin & Sacha
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats section */}
+      <section className="py-12 px-6 md:px-10 lg:px-20 bg-background border-y border-border">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="text-center">
+              <p className="text-4xl font-bold text-foreground mb-2">98%</p>
+              <p className="text-sm text-muted-foreground">User Satisfaction</p>
+            </div>
+            <div className="text-center">
+              <p className="text-4xl font-bold text-foreground mb-2">30+</p>
+              <p className="text-sm text-muted-foreground">Languages Supported</p>
+            </div>
+            <div className="text-center">
+              <p className="text-4xl font-bold text-foreground mb-2">12hrs</p>
+              <p className="text-sm text-muted-foreground">Battery Life</p>
+            </div>
+            <div className="text-center">
+              <p className="text-4xl font-bold text-foreground mb-2">5000+</p>
+              <p className="text-sm text-muted-foreground">Beta Testers</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Features section */}
+      <section id="features" className="py-24 px-6 md:px-10 lg:px-20 bg-muted/50 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent"></div>
+        <div className="max-w-6xl mx-auto relative z-10">
+          <div className="flex flex-col gap-2 text-center mb-20 animate-fade-in">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+              Innovative Features
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Our revolutionary technology offers features that redefine the visual experience.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <FeatureCard 
+              icon={Mic} 
+              title="AI Microphone" 
+              description="Advanced voice commands with contextual recognition"
+              delay="50ms"
+            />
+            
+            <FeatureCard 
+              icon={Camera} 
+              title="Smart Camera" 
+              description="Embedded artificial intelligence for real-time analysis"
+              delay="100ms"
+            />
+            
+            <FeatureCard 
+              icon={Sun} 
+              title="Light Adaptation" 
+              description="Automatic adjustment to lighting conditions"
+              delay="150ms"
+            />
+            
+            <FeatureCard 
+              icon={Heart} 
+              title="Eye Health" 
+              description="Continuous monitoring of your vision health parameters"
+              delay="200ms"
+            />
+            
+            <FeatureCard 
+              icon={Volume2} 
+              title="Spatial Audio" 
+              description="Directional audio technology for perfect immersion"
+              delay="250ms"
+            />
+            
+            <FeatureCard 
+              icon={Lightbulb} 
+              title="Augmented Vision" 
+              description="Contextual information overlay on the real world"
+              delay="300ms"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Large image section */}
+      <section className="py-20 relative overflow-hidden bg-background">
+        <div className="w-full aspect-[2/1] bg-muted flex items-center justify-center hover-scale transition-transform duration-700 rounded-sm relative overflow-hidden">
+          <Image 
+            src="/img/lunette.png" 
+            alt="UltimateGlasses" 
+            width={1200} 
+            height={600} 
+            className="object-contain hover-scale transition-transform duration-700"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
+          <div className="absolute bottom-6 right-6 p-3 bg-background/70 backdrop-blur-sm rounded-lg">
+            <p className="text-xs text-muted-foreground">UltimateGlasses Preview</p>
+          </div>
+        </div>
+      </section>
+
+      {/* User experience section */}
+      <section id="experience" className="py-24 px-6 md:px-10 lg:px-20 relative overflow-hidden bg-background">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent"></div>
+        <div className="max-w-6xl mx-auto relative z-10">
+          <div className="flex flex-col gap-2 mb-20 animate-fade-in">
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+              The User Experience
+            </h2>
+            <p className="text-muted-foreground max-w-2xl">
+              Discover how our technology transforms the way you see the world.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+            <div className="flex flex-col gap-4 animate-slide-right" style={{ animationDelay: "50ms" }}>
+              <div className="h-64 bg-muted rounded-lg flex items-center justify-center hover-scale overflow-hidden">
+                <Image
+                  src="/img/camera.png"
+                  alt="Smart Camera"
+                  width={300}
+                  height={250}
+                  className="object-cover w-full h-full"
+                />
+              </div>
+              <h3 className="text-xl font-medium">Real-Time Translation</h3>
+              <p className="text-muted-foreground text-sm">
+                Understand any language in real time with smart subtitles directly in your field of vision.
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-4 animate-slide-right" style={{ animationDelay: "150ms" }}>
+              <div className="h-64 bg-muted rounded-lg flex items-center justify-center hover-scale overflow-hidden">
+                <Image
+                  src="/img/audiofeature.png"
+                  alt="Spatial Audio"
+                  width={300}
+                  height={250}
+                  className="object-cover w-full h-full"
+                />
+              </div>
+              <h3 className="text-xl font-medium">Visual Recognition</h3>
+              <p className="text-muted-foreground text-sm">
+                Instantly identify objects, people, and surrounding information with remarkable precision.
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-4 animate-slide-right" style={{ animationDelay: "250ms" }}>
+              <div className="h-64 bg-muted rounded-lg flex items-center justify-center hover-scale overflow-hidden">
+                <Image
+                  src="/img/nightvisonfeature.png"
+                  alt="Night Vision"
+                  width={300}
+                  height={250}
+                  className="object-cover w-full h-full"
+                />
+              </div>
+              <h3 className="text-xl font-medium">Adaptive Vision</h3>
+              <p className="text-muted-foreground text-sm">
+                Navigate easily in darkness thanks to our integrated night vision technology, effortlessly.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Piercing section */}
+      <section id="piercing" className="py-24 px-6 md:px-10 lg:px-20 bg-muted/50 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent"></div>
+        <div className="max-w-6xl mx-auto relative z-10">
+          <div className="flex flex-col gap-2 text-center mb-20 animate-fade-in">
+            <div className="flex justify-center mb-4">
+              <span className="p-2 rounded-full bg-primary/20 inline-flex border border-primary/30">
+                <Gem className="w-5 h-5 text-primary" />
+              </span>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+              Smart Piercing Integration
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Our glasses seamlessly connect with smart piercings to enhance your sensory experience.
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            <div className="flex flex-col gap-6 justify-center">
+              <h3 className="text-xl font-medium">Enhanced Sensory Experience</h3>
+              <p className="text-muted-foreground">
+                Our revolutionary smart piercing technology works with the glasses to create a comprehensive sensory ecosystem that extends your perception beyond standard visual cues.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2">
+                  <div className="mt-1 w-5 h-5 rounded-full bg-primary/30 flex items-center justify-center flex-shrink-0 border border-primary/40">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                  </div>
+                  <span className="text-sm text-muted-foreground">Haptic feedback through imperceptible vibrations</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="mt-1 w-5 h-5 rounded-full bg-primary/30 flex items-center justify-center flex-shrink-0 border border-primary/40">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                  </div>
+                  <span className="text-sm text-muted-foreground">Subtle temperature shifts to convey information</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <div className="mt-1 w-5 h-5 rounded-full bg-primary/30 flex items-center justify-center flex-shrink-0 border border-primary/40">
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                  </div>
+                  <span className="text-sm text-muted-foreground">Bio-electrical interface for enhanced interaction</span>
+                </li>
+              </ul>
+              <Button className="text-sm w-fit mt-4 bg-primary hover:bg-primary/90 text-primary-foreground rounded-full">
+                Learn About Safety Features
+              </Button>
+            </div>
+            <div className="relative">
+              <div className="h-96 bg-muted rounded-xl overflow-hidden flex items-center justify-center hover-lift hover-glow">
+                <div className="relative w-full h-full">
+                  <Image 
+                    src="/img/lunette.png" 
+                    alt="Smart Piercing Integration" 
+                    fill
+                    className="object-contain p-4"
+                  />
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center border border-primary/30">
+                    <Gem className="w-8 h-8 text-primary" />
+                  </div>
+                </div>
+                <div className="absolute bottom-6 right-6 p-3 bg-background/70 backdrop-blur-sm rounded-lg">
+                  <p className="text-xs font-medium">Dermal Anchor Design</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="bg-background rounded-lg p-6 border border-border hover-lift shadow-sm">
+              <p className="text-sm text-foreground font-medium mb-2">Material Safety</p>
+              <p className="text-xs text-muted-foreground">Medical-grade titanium and biocompatible circuits designed for long-term use.</p>
+            </div>
+            <div className="bg-background rounded-lg p-6 border border-border hover-lift shadow-sm">
+              <p className="text-sm text-foreground font-medium mb-2">Wireless Power</p>
+              <p className="text-xs text-muted-foreground">No batteries needed — powered through induction from the glasses when in range.</p>
+            </div>
+            <div className="bg-background rounded-lg p-6 border border-border hover-lift shadow-sm">
+              <p className="text-sm text-foreground font-medium mb-2">Quick Installation</p>
+              <p className="text-xs text-muted-foreground">Professional placement takes less than 30 minutes with minimal recovery time.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-24 px-6 md:px-10 lg:px-20 bg-background relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent"></div>
+        <div className="max-w-4xl mx-auto text-center animate-fade-in relative z-10">
+          <div className="flex flex-col gap-2 mb-12">
+            <div className="flex justify-center mb-4">
+              <div className="flex -space-x-2">
+                <div className="w-8 h-8 rounded-full bg-muted-foreground/20"></div>
+                <div className="w-8 h-8 rounded-full bg-muted-foreground/30"></div>
+                <div className="w-8 h-8 rounded-full bg-muted-foreground/40"></div>
+              </div>
+            </div>
+            <h2 className="text-3xl md:text-4xl font-bold tracking-tight">
+              What Our Users Say
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Feedback that demonstrates the power of our technology.
+            </p>
+          </div>
+          
+          <blockquote className="italic text-lg md:text-xl text-muted-foreground mb-8 animate-slide-up">
+            &ldquo;These glasses have completely transformed the way I interact with the world. The instant translation has made my international travels incredibly smooth.&rdquo;
+          </blockquote>
+          <p className="font-medium animate-slide-up" style={{ animationDelay: "100ms" }}>Sophie Durand</p>
+          <p className="text-muted-foreground text-sm animate-slide-up" style={{ animationDelay: "150ms" }}>Traveler & Photographer</p>
+        </div>
+      </section>
+
+      {/* Call to action */}
+      <section id="contact" className="py-20 px-6 md:px-10 lg:px-20 bg-muted/50">
+        <div className="max-w-3xl mx-auto text-center animate-fade-in">
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 tracking-tight">
+            Ready to Transform Your Vision?
+          </h2>
+          <p className="text-muted-foreground mb-10 max-w-2xl mx-auto">
+            Join our waitlist to be among the first to test UltimateGlasses.
+          </p>
+          <div className="flex flex-col sm:flex-row justify-center gap-4">
+            <Button size="lg" className="bg-foreground hover:bg-foreground/90 text-background rounded-full px-8 py-6 hover-lift hover-glow group border-2 border-primary/20">
+              Join the Waitlist <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-16 px-6 md:px-10 lg:px-20 bg-background border-t border-border">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-center mb-12">
+            <div className="font-medium mb-8 md:mb-0">UltimateGlasses</div>
+            <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8">
+              <a href="#contact" className="text-muted-foreground hover:text-foreground transition-colors text-sm text-left">Legal Notice</a>
+              <a href="#contact" className="text-muted-foreground hover:text-foreground transition-colors text-sm text-left">Privacy Policy</a>
+              <a href="#contact" className="text-muted-foreground hover:text-foreground transition-colors text-sm text-left">Contact</a>
+            </div>
+          </div>
+          <div className="text-center text-muted-foreground text-sm">
+            © 2025 UltimateGlasses. All rights reserved.
+          </div>
+        </div>
       </footer>
     </div>
-  );
+  )
 }
